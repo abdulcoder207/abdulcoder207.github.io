@@ -1,0 +1,232 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #cc2222;
+}
+
+.baner {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    margin-bottom: -10px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 80px;
+}
+
+.navbar .brand {
+    margin: 3px;
+    font-size: 34px;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.navbar .nav-links {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar .nav-links li {
+    margin: 0 10px;
+}
+
+.navbar .nav-links a {
+    text-decoration: none;
+    color: #acacac;
+    font-size: 26px;
+}
+
+.navbar .nav-links a:hover {
+    color: #007bff;
+}
+
+
+/* navbar responsive */
+
+@media screen and (max-width: 368px) {
+    .baner{
+        height: 200px;
+    }
+    .navbar .brand{
+        font-size: 20px;
+    }
+
+    .navbar .nav-links a{
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 468px) {
+    .navbar .brand{
+        font-size: 20px;
+    }
+
+    .navbar .nav-links a{
+        font-size: 20px;
+    }
+}
+
+/* navbar end */
+
+.movie-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 0;
+}
+
+.movie-card {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    background-color: #5c1b1b;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    transition: transform 0.2s;
+}
+
+/* Sesuaikan lebar dan tinggi kartu untuk berbagai ukuran layar */
+@media screen and (max-width: 992px) {
+    .movie-card {
+        width: calc(30% - 10px); /* 2 kartu per baris */
+        height: 580px; /* Sesuaikan tinggi */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .movie-card {
+        width: calc(50% - 20px); /* 1 kartu per baris */
+        height: 540px; /* Sesuaikan tinggi */
+    }
+}
+
+@media screen and (max-width: 368px) {
+    .movie-card {
+        width: calc(50% - 50px); /* 1 kartu per baris */
+        height: 575px; /* Sesuaikan tinggi */
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .movie-card {
+        width: calc(50% - 10px); /* 1 kartu per baris */
+        height: 580px; /* Sesuaikan tinggi */
+    }
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+}
+
+.movie-poster {
+    width: 100%;
+    height: 330px;
+}
+
+.movie-info {
+    padding: 20px;
+}
+
+.movie-title {
+    border-top: 2px solid #000000;
+    font-size: 24px;
+    margin: 0 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.movie-description {
+    font-size: 14px;
+    color: #fff;
+    margin: 0 0 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limit to 3 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.movie-button {
+    text-decoration: none;
+    margin: 7px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 0;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.movie-button:hover {
+    background-color: #0056b3;
+}
+
+
+/* footer */
+
+.footer {
+    background: #000;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 20px;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.socials a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-logo {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-bottom {
+    padding: 10px 0;
+    border-top: 1px solid #777;
+    margin-top: 20px;
+}
+
+/* .show-full-text .movie-title,
+.show-full-text .movie-description {
+    white-space: normal;
+    -webkit-line-clamp: unset;
+} */

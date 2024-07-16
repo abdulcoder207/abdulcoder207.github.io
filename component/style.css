@@ -1,0 +1,196 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+    background-color: #000;
+    height: 100px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navbar-brand a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 34px;
+    font-weight: bold;
+}
+
+.navbar-nav {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-nav li {
+    margin-right: 20px;
+}
+
+.navbar-nav li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 28px;
+}
+
+.navbar-nav li a:hover {
+    color: #000dff;
+    text-decoration: underline;
+}
+
+.judul {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: #000;
+    margin-top: 20px;
+}
+
+.info-table {
+    border: 1px solid #000;
+    border-collapse: collapse;
+    width: 250px;
+    margin-right: 90px;
+    margin-left: 20px;
+    float: right;
+    background-color: #f9f9f9;
+}
+
+.info-table th,
+.info-table td {
+    /* border: 1px solid #000; */
+    padding: 8px;
+    text-align: center;
+}
+
+.info-table th {
+    background-color: #f2f2f2;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.info-table td {
+    font-size: 16px;
+}
+
+.info-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+a {
+    text-decoration: none;
+}
+
+.image-cell {
+    text-align: center;
+    /* Menempatkan gambar di tengah */
+    padding: 10px 0;
+    /* Menambahkan sedikit ruang di atas dan bawah gambar */
+}
+
+.centered-image {
+    max-width: 100%;
+    /* Sesuaikan gambar agar tidak melebihi lebar sel */
+    height: auto;
+    /* Pertahankan rasio aspek gambar */
+    display: block;
+    margin: 0 auto;
+    /* Pastikan gambar berada di tengah */
+}
+
+@media screen and (max-width: 992px) {
+    .info-table {
+        margin-right: 5px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .info-table {
+        margin-right: 4px;
+    }
+}
+
+@media screen and (max-width: 368px) {
+    .info-table {
+        margin-right: 3px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .navbar-brand a {
+        font-size: 20px;
+    }
+
+    .navbar-nav li a {
+        font-size: 15px;
+    }
+
+    .info-table {
+        margin-right: 65px;
+        margin-bottom: 5px;
+    }
+
+    .footer-title {
+        font-size: 20px;
+        align-items: center;
+        display: flex;
+    }
+
+    .footer-description {
+        font-size: 10px;
+    }
+}
+
+.text {
+    margin-top: 5px;
+    margin-left: 30px;
+    margin-right: 30px;
+    font-size: 20px;
+    color: #000;
+}
+.footer {
+    background: #000;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 20px;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.socials a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-logo {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-bottom {
+    padding: 10px 0;
+    border-top: 1px solid #777;
+    margin-top: 20px;
+}
