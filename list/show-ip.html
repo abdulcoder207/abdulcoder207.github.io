@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ip</title>
+    <link rel="stylesheet" href="../component/style.css">
+</head>
+<body>
+    <!-- <style>
+            body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+    </style> -->
+
+    <style>
+        .container {
+            text-align: center;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            margin: 0 0 15px;
+            font-size: 24px;
+            color: #333;
+        }
+        p {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a href="../index.html">My Film</a>
+        </div>
+        <ul class="navbar-nav">
+            <li><a href="../list/f.html">Back</a></li>
+        </ul>
+    </nav>
+
+
+    <div class="container">
+        <h1>What is My IP</h1>
+        <p id="public-ip">Loading public IP...</p>
+        <p id="local-ip">Loading local IP...</p>
+        <p id="broadcast-ip">Broadcast IP: Calculating...</p>
+    </div>
+
+    <script>
+        const urlIp = 'https://api.ipify.org?format=json'
+
+        fetch(urlIp).then(response => response.json()).then(data =>{
+            document.getElementById('public-ip').textContent = 'IP Public: ' + data.ip
+        });
+
+        async function getLocalIP() {
+            const peerConnection = new RTCPeerConnection({
+                iceServers: [{ urls: "stun:stun.l.google.com:19302" }]
+            });
+
+            peerConnection.createDataChannel(""); // Create a bogus data channel
+
+            const offer = await peerConnection.createOffer();
+            await peerConnection.setLocalDescription(offer);
+
+            return new Promise((resolve, reject) => {
+                peerConnection.onicecandidate = (event) => {
+                    if (!event || !event.candidate) {
+                        reject(new Error("Failed to gather ICE candidates"));
+                        return;
+                    }
+
+                    const candidate = event.candidate.candidate;
+                    const parts = candidate.split(" ");
+                    const ip = parts[4];
+                    const type = parts[7];
+
+                    if (type === "host") {
+                        resolve(ip);
+                        peerConnection.close();
+                    }
+                };
+            });
+        }
+        getLocalIP().then(ip => {
+            document.getElementById('local-ip').innerHTML ='Local IP: ' + ip
+            });
+
+            function ipToBinary(ip) {
+            return ip.split('.').map(function(octet) {
+                return ('00000000' + parseInt(octet, 10).toString(2)).slice(-8);
+            }).join('');
+        }
+
+        function binaryToIp(binary) {
+            return binary.match(/.{1,8}/g).map(function(byte) {
+                return parseInt(byte, 2);
+            }).join('.');
+        }
+
+        function calculateBroadcastAddress(ip, subnetMask) {
+            var ipBinary = ipToBinary(ip);
+            var subnetBinary = ipToBinary(subnetMask);
+            var networkPart = ipBinary.slice(0, subnetBinary.indexOf('0'));
+            var broadcastBinary = networkPart + '1'.repeat(32 - networkPart.length);
+            return binaryToIp(broadcastBinary);
+        }
+
+        var ip = urlIp;
+        var subnetMask = '255.255.255.0';
+        var broadcastIp = calculateBroadcastAddress(ip, subnetMask);
+
+        document.getElementById('broadcast-ip').textContent = 'Broadcast IP: ' + broadcastIp;
+    </script>
+    </body>
+</html>
