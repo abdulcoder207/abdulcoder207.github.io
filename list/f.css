@@ -142,6 +142,7 @@ body {
 
 .movie-title {
     border-top: 2px solid #000000;
+    color: #848484;
     font-size: 24px;
     margin: 0 0 10px;
     white-space: nowrap;
@@ -154,7 +155,7 @@ body {
     color: #fff;
     margin: 0 0 20px;
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* Limit to 3 lines */
+    -webkit-line-clamp: 2; /* max 2 baris */
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
