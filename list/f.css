@@ -162,7 +162,7 @@ body {
 }
 .movie-button {
     text-decoration: none;
-    margin: 7px;
+    margin: 0 0 8px;
     display: flex;
     justify-content: center;
     width: 100%;
